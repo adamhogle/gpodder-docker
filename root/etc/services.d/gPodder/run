@@ -1,9 +1,5 @@
 #!/bin/execlineb -P
 
-# with-contenv
-s6-envdir -fn -- /var/run/s6/container_environment
-importas -i TZ
-
 # Redirect stderr to stdout.
 fdmove -c 2 1
 
@@ -11,6 +7,10 @@ fdmove -c 2 1
 if { s6-svwait -t 10000 -U /var/run/s6/services/openbox/ }
 # Wait until guacamole is running
 if { s6-svwait -t 10000 -U /var/run/s6/services/guacamole/ }
+
+# with-contenv
+s6-envdir -fn -- /var/run/s6/container_environment
+importas -i TZ
 
 # Drop privileges and set env
 s6-setuidgid abc

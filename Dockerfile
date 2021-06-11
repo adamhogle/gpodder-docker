@@ -48,13 +48,14 @@ RUN \
 	eyed3 \
 	youtube_dl
 
-RUN echo "**** Installing gPodder ****" && \
-    cd /app && \
-    git clone https://github.com/gpodder/gpodder.git && \
-    cd gpodder && \
+RUN \
+    echo "**** Installing gPodder ****" && \
+    git clone https://github.com/gpodder/gpodder.git /app && \
+    cd /app/gpodder && \
     git checkout $GPODDER_VERSION
 
-RUN apt-get clean && \
+RUN \
+    apt-get clean && \
     rm -rf \
     /tmp/* \
     /var/lib/apt/lists/* \

@@ -49,6 +49,7 @@ RUN \
 	youtube_dl
 
 RUN echo "**** Installing gPodder ****" && \
+    cd /app && \
     git clone https://github.com/gpodder/gpodder.git && \
     cd gpodder && \
     git checkout $GPODDER_TAG

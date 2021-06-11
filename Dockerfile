@@ -4,7 +4,7 @@ LABEL maintainer="xthursdayx"
 
 ENV APPNAME="gPodder" 
 
-ARG GPODDER_TAG="3.10.20"
+ARG GPODDER_VERSION="3.10.20"
 
 RUN \
     echo "**** Installing dep packages ****" && \
@@ -52,7 +52,7 @@ RUN echo "**** Installing gPodder ****" && \
     cd /app && \
     git clone https://github.com/gpodder/gpodder.git && \
     cd gpodder && \
-    git checkout $GPODDER_TAG
+    git checkout $GPODDER_VERSION
 
 RUN apt-get clean && \
     rm -rf \

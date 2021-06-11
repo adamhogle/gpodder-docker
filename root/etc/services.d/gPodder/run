@@ -8,10 +8,6 @@ if { s6-svwait -t 10000 -U /var/run/s6/services/openbox/ }
 # Wait until guacamole is running
 if { s6-svwait -t 10000 -U /var/run/s6/services/guacamole/ }
 
-# with-contenv
-s6-envdir -fn -- /var/run/s6/container_environment
-importas -i TZ
-
 # Drop privileges and set env
 s6-setuidgid abc
 s6-env DISPLAY=:1 HOME=/config GPODDER_DOWNLOAD_DIR=/downloads LANG=en_US.UTF-8 LANGUAGE=en_US.UTF-8 LC_ALL=en_US.UTF-8 TZ=${TZ}

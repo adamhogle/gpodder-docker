@@ -1,7 +1,7 @@
 FROM lsiobase/guacgui
 
 # package version
-ARG GPODDER_VERSION="3.10.20"
+ARG GPODDER_VERSION="3.10.21"
 
 # env variables
 ARG DEBIAN_FRONTEND="noninteractive"
